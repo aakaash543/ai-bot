@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bug Fix Suggestion Bot</title>
+    <meta name="description" content="Instant AI-powered code fixes using internal historical records.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+    
+    <main class="glass-container">
+        <header>
+            <div class="branding">
+                <div class="logo-icon">🐛</div>
+                <h1>AI Bug Fix Bot</h1>
+            </div>
+            <p class="subtitle">Paste your stack trace. Get instant, tailored solutions.</p>
+        </header>
+
+        <section class="input-section">
+            <textarea id="error-input" placeholder="e.g. TypeError: Cannot read properties of undefined (reading 'map')&#10;&#10;at renderList (/src/components/List.js:15:23)..."></textarea>
+            <div class="actions">
+                <button id="suggest-btn" class="primary-btn">
+                    <span class="btn-text">Generate Fix</span>
+                    <span class="spinner hidden"></span>
+                </button>
+            </div>
+        </section>
+
+        <section id="results-section" class="results-container hidden">
+            <div class="results-header">
+                <h2>Suggested Fix</h2>
+                <button id="copy-btn" class="icon-btn" title="Copy to clipboard">📋</button>
+            </div>
+            <div id="solution-content" class="markdown-body">
+                <!-- AI Output goes here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

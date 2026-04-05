@@ -1,0 +1,20 @@
+[
+  {
+    "error_message": "TypeError: Cannot read properties of undefined (reading 'map')",
+    "stack_trace": "at renderList (/src/components/List.js:15:23)\n at render (/src/index.js:42:12)",
+    "solution_code": "if (!items) return null;\nreturn items.map(item => <li>{item.name}</li>);",
+    "explanation": "Added a null check before calling .map() since the array might be undefined initially during the data fetch."
+  },
+  {
+    "error_message": "KeyError: 'user_id'",
+    "stack_trace": "File \"main.py\", line 45, in get_user_data\n    user_id = data['user_id']",
+    "solution_code": "user_id = data.get('user_id', None)\nif not user_id:\n    raise ValueError('Missing user_id in request')",
+    "explanation": "Used dictionary .get() method instead of bracket notation to prevent KeyError if the key is missing."
+  },
+  {
+    "error_message": "sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked",
+    "stack_trace": "File \"db.py\", line 88, in insert\n    cursor.execute(query)",
+    "solution_code": "import sqlite3\nconn = sqlite3.connect('my.db', timeout=10)\n# Wait longer for the lock to be released",
+    "explanation": "Increased the timeout handling for SQLite connections to mitigate database is locked errors during concurrent writes."
+  }
+]
